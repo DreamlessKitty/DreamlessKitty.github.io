@@ -1,0 +1,15 @@
+# Ignore sensitive files containing API keys or passwords
+.env
+secret_config.json
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore package manager folders (very common in JavaScript/React)
+node_modules/
+dist/
+build/
+
+# Ignore log files
+*.log
