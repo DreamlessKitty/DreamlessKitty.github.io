@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varaukset - Kuivasjärven Rantasaunat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Kuivasjärven Rantasaunat</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="saunat.html">Saunat</a></li>
+                <li><a href="varaukset.html">Varaukset</a></li>
+                <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Varauslomake</h2>
+            <form action="varaukset.html" method="post">
+                <label for="sauna">Valitse sauna:</label>
+                <select name="sauna" id="sauna">
+                    <option value="sauna1">Savusauna</option>
+                    <option value="sauna2">Puulämmitteinen rantasauna</option>
+                    <option value="sauna3">Pieni mökkisauna</option>
+                </select>
+                <br><br>
+                <label for="paiva">Valitse päivä:</label>
+                <input type="date" name="paiva" id="paiva">
+                <br><br>
+                <label for="aika">Valitse aika:</label>
+                <input type="time" name="aika" id="aika">
+                <br><br>
+                <p>Varauksen hinta on 160€ arkisin ja 220€ viikonloppuisin ja pyhisin.</p>
+                <input type="submit" value="Varaa">
+            </form>
+        </section>
+    </main>
+</body>
+</html>
