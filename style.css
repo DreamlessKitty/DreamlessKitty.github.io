@@ -1,59 +1,127 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 :root {
-            --tumma-viininpunainen: #58181F;
-            --lammin-valkoinen: #FAFAF5;
-            --vadelmanpunainen: #D1345B;
-            --teksti-tumma: #2B2626;
-            --harmaa-tausta: #F0EFEA;
-        }
+    --tumma-viininpunainen: #58181F;
+    --lammin-valkoinen: #FAFAF5;
+    --vadelmanpunainen: #D1345B;
+    --teksti-tumma: #2B2626;
+    --linkki: #7f3942;
+    --harmaa-tausta: #F0EFEA;
+    --font-text: system-ui, 'Segoe UI', sans-serif;
+    --space: 1rem;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--lammin-valkoinen);
-            color: var(--teksti-tumma);
-            line-height: 1.6;
-        }
+/* Tumma tila järjestelmän asetuksen mukaan (E2-vaatimus) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lammin-valkoinen: #1C1919;
+        --teksti-tumma: #F5F2EB;
+        --harmaa-tausta: #2A2424;
+        --linkki: #FF8FA3;
+    }
+}
 
-        header {
-            background-color: var(--tumma-viininpunainen);
-            color: var(--lammin-valkoinen);
-            padding: 2rem 1rem;
-            text-align: center;
-        }
+body {
+    font-family: var(--font-text);
+    margin: 0;
+    padding: 0;
+    background-color: var(--lammin-valkoinen);
+    color: var(--teksti-tumma);
+    line-height: 1.6;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            letter-spacing: 1px;
-        }
+header {
+    background-color: var(--tumma-viininpunainen);
+    color: #FAFAF5;
+    padding: 2rem var(--space);
+    text-align: center;
+}
 
-        header p {
-            margin: 0.5rem 0 0 0;
-            font-style: italic;
-            opacity: 0.9;
-        }
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
 
+header p {
+    margin: 0.5rem 0 0 0;
+    font-style: italic;
+    opacity: 0.9;
+}
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            background-color: var(--tumma-viininpunainen);
-            color: var(--lammin-valkoinen);
-            font-size: 0.9rem;
+header a {
+    color: #FAFAF5;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: #FAFAF5;
+}
 
-        }
-        header a {
-            color: var(--lammin-valkoinen);
-            text-decoration: none;
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-decoration-color: var(--lammin-valkoinen);
-        }
-        /* Varmistaa, että hidden-attribuutti piilottaa kortin aina */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: var(--space) 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+main {
+    max-width: 65ch;
+    margin: 0 auto;
+    padding: var(--space);
+}
+main a {
+    color: var(--linkki);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--linkki);
+}
+
+/* Näkyvä näppäimistöfokus (E2-vaatimus) */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--vadelmanpunainen);
+    outline-offset: 3px;
+}
+
+article {
+    background-color: var(--harmaa-tausta);
+    padding: var(--space);
+    margin-bottom: var(--space);
+    border-radius: 6px;
+}
+
+/* Piilottaa suodatetut kortit */
+[hidden] {
+    display: none;
+}
+
 /* Korostaa valitun suodatinpainikkeen sivuston teemavärillä */
 button[aria-pressed="true"] {
     background-color: var(--tumma-viininpunainen);
-    color: var(--lammin-valkoinen);
+    color: #FAFAF5;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem var(--space);
+    margin-top: 4rem;
+    background-color: var(--tumma-viininpunainen);
+    color: #FAFAF5;
+    font-size: 0.9rem;
+}
+
+/* Asettelu muuttuu isommalle näytölle (E2-vaatimus) */
+@media (min-width: 600px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+    }
 }
