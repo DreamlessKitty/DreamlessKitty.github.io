@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Saunat - Kuivasjärven Rantasaunat</title>
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
     </head>
     <body>
         <header>
@@ -21,15 +22,34 @@
             <section>
                 <h2>Saunat</h2>
                 <p>Meillä on useita saunoja, jotka sopivat erilaisiin tarpeisiin. Nauti luonnonkauniista ympäristöistä ja rentoutumisesta.</p>
-                <ul>
-                    <li><strong>Savusauna:</strong> Perinteinen savusauna, jossa on ainutlaatuinen tunnelma ja pehmeä lämpö.</li>
-                    <strong>Henkilömäärä:</strong><p>8-10 henkilöä</p>
-                    <br>
-                    <li><strong>Puulämmitteinen rantasauna:</strong> Rantasauna, jossa voit nauttia järvimaisemista ja virkistävästä uinnista.</li>
-                    <strong>Henkilömäärä:</strong><p>6-8 henkilöä</p>
-                    <br>
-                    <li><strong>Pieni mökkisauna:</strong> Kompakti sauna, joka sopii pienemmille ryhmille ja tarjoaa intiimin saunakokemuksen.</li>
-                    <strong>Henkilömäärä:</strong><p>2-4 henkilöä</p>
-                </ul>
+                <br>
+                <p id="sauna-status"></p>
+                <div class="filters">
+                    <button type="button" data-filter="all" aria-pressed="true">Kaikki</button>
+                    <button type="button" data-filter="pieni" aria-pressed="false">Pienet ryhmät (2–4 hlö)</button>
+                    <button type="button" data-filter="iso" aria-pressed="false">Isot ryhmät (6–10 hlö)</button>
+                </div>
+                    <div id="sauna-list">
+                    <article data-size="iso">
+                        <h3>Savusauna</h3>
+                        <p>Perinteinen savusauna, jossa on ainutlaatuinen tunnelma ja pehmeä lämpö.</p>
+                        <p><strong>Henkilömäärä:</strong> 8–10 henkilöä</p>
+                    </article>
+
+                    <article data-size="iso">
+                        <h3>Puulämmitteinen rantasauna</h3>
+                        <p>Rantasauna, jossa voit nauttia järvimaisemista ja virkistävästä uinnista.</p>
+                        <p><strong>Henkilömäärä:</strong> 6–8 henkilöä</p>
+                    </article>
+
+                    <article data-size="pieni">
+                        <h3>Pieni mökkisauna</h3>
+                        <p>Kompakti sauna, joka sopii pienemmille ryhmille ja tarjoaa intiimin saunakokemuksen.</p>
+                        <p><strong>Henkilömäärä:</strong> 2–4 henkilöä</p>
+                    </article>
+                </div>
             </section>
             <p>Kiinnostuitko? Täytä hakemus <a href="varaukset.html">täästä</a>.</p>
+        </main>
+    </body>
+</html>

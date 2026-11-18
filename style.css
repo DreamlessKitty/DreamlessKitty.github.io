@@ -51,3 +51,9 @@
             text-decoration-thickness: 1px;
             text-decoration-color: var(--lammin-valkoinen);
         }
+        /* Varmistaa, että hidden-attribuutti piilottaa kortin aina */
+/* Korostaa valitun suodatinpainikkeen sivuston teemavärillä */
+button[aria-pressed="true"] {
+    background-color: var(--tumma-viininpunainen);
+    color: var(--lammin-valkoinen);
+}
