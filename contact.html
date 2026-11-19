@@ -4,22 +4,14 @@
         <meta charset="utf-8">
         <title>Yhteystiedot - Kuivasjärven Rantasaunat</title>
         <link rel="stylesheet" href="style.css">
-        <script src="script.js" defer></script>
     </head>
     <body>
         <header>
             <h1>Kuivasjärven Rantasaunat</h1>
-            <button type="button" id="info-btn" popovertarget="aukiolo-popover">Aukioloajat ja sijainti</button>
-            <div id="aukiolo-popover" popover>
-                <h3>Aukioloajat ja sijainti</h3>
-                <p>Ma–Su klo 10:00–22:00</p>
-                <p>Kuivasjärventie 123, 60100 Seinäjoki</p>
-                <button type="button" popovertarget="aukiolo-popover" popovertargetaction="hide">Sulje</button>
-            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Etusivu</a></li>
-                    <li><a href="about.html">Saunat</a></li>
+                    <li><a href="about.html">Saunat</a></li    >
                     <li><a href="listing.html">Varaukset</a></li>
                     <li><a href="contact.html">Yhteystiedot</a></li>
                 </ul>
@@ -28,7 +20,7 @@
         <main>
             <section>
                 <h2>Yhteystiedot</h2>
-                <p>Ota yhteyttä meihin, jos sinulla on kysyttävää saunoistamme tai niihin liittyvistä varauksista tai ominaisuuksista. Voit tavoittaa meidät seuraavilla tavoilla:</p>
+                <p>Ota yhteyttä meihin, jos sinulla on kysyttävää saunoistamme tai niihin littyvistä varauksista tai ominaisuuksista. Voit tavoittaa meidät seuraavilla tavoilla:</p>
                 <ul>
                     <li><strong>Sähköposti:</strong> <a href="mailto:info@kuivasjarvenrantasauna.fi">info@kuivasjarvenrantasauna.fi</a></li>
                     <li><strong>Puhelin:</strong> <a href="tel:+358401234567">+358 40 123 4567</a></li>
@@ -36,48 +28,6 @@
                 </ul>
                 <p>Haluatko tehdä varauksen heti? Se hoituu <a href="varaukset.html">täällä</a>.</p>
             </section>
-
-            <section>
-                <h2>Lähetä yhteydenottopyyntö</h2>
-                <form id="contact-form">
-                    <div class="field">
-                        <label for="nimi">Nimi (pakollinen)</label>
-                        <input type="text" id="nimi" name="nimi" required minlength="2" aria-describedby="nimi-error">
-                        <p id="nimi-error" class="error"></p>
-                    </div>
-
-                    <div class="field">
-                        <label for="sahkoposti">Sähköposti (pakollinen)</label>
-                        <input type="email" id="sahkoposti" name="sahkoposti" required aria-describedby="sahkoposti-error">
-                        <p id="sahkoposti-error" class="error"></p>
-                    </div>
-
-                    <div class="field">
-                        <label for="aihe">Aihe (pakollinen)</label>
-                        <select id="aihe" name="aihe" required aria-describedby="aihe-error">
-                            <option value="">-- Valitse aihe --</option>
-                            <option value="Saunojen tiedustelu">Saunojen tiedustelu</option>
-                            <option value="Varausmuutokset">Varausmuutokset</option>
-                            <option value="Ryhmävaraukset">Ryhmävaraukset</option>
-                            <option value="Muu kysymys">Muu kysymys</option>
-                        </select>
-                        <p id="aihe-error" class="error"></p>
-                    </div>
-
-                    <div class="field">
-                        <label for="viesti">Viesti (pakollinen)</label>
-                        <textarea id="viesti" name="viesti" rows="5" required minlength="10" aria-describedby="viesti-error"></textarea>
-                        <p id="viesti-error" class="error"></p>
-                    </div>
-
-                    <button type="submit">Lähetä</button>
-                </form>
-
-                <p id="form-status" role="status"></p>
-            </section>
         </main>
-        <footer>
-            <p>&copy; 2026 Kuivasjärven Rantasaunat</p>
-        </footer>
     </body>
 </html>
