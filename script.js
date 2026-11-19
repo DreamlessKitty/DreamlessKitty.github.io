@@ -2,6 +2,36 @@ const contactForm = document.querySelector('#contact-form');
 const formStatus = document.querySelector('#form-status');
 const STORAGE_KEY = 'kuivasjarvi_yhteydenotto';
 
+const filterButtons = document.querySelectorAll('.filters button');
+const saunas = document.querySelectorAll('#sauna-list article');
+const saunaStatus = document.querySelector('#sauna-status');
+
+if (filterButtons.length > 0 && saunas.length > 0) {
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const selectedFilter = button.dataset.filter;
+
+            // Update aria-pressed state on buttons
+            filterButtons.forEach((btn) => {
+                btn.setAttribute('aria-pressed', btn === button ? 'true' : 'false');
+            });
+
+            // Show or hide saunas based on data-size
+            let visibleCount = 0;
+            saunas.forEach((sauna) => {
+                const matches = selectedFilter === 'all' || sauna.dataset.size === selectedFilter;
+                sauna.hidden = !matches;
+                if (matches) visibleCount++;
+            });
+
+            // Update the status message
+            if (saunaStatus) {
+                saunaStatus.textContent = `Näytetään ${visibleCount}/${saunas.length} saunaa.`;
+            }
+        });
+    });
+}
+
 if (contactForm) {
     contactForm.noValidate = true;
 
