@@ -1,59 +1,157 @@
 :root {
-            --tumma-viininpunainen: #58181F;
-            --lammin-valkoinen: #FAFAF5;
-            --vadelmanpunainen: #D1345B;
-            --teksti-tumma: #2B2626;
-            --harmaa-tausta: #F0EFEA;
-        }
+    color-scheme: light dark;
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--lammin-valkoinen);
-            color: var(--teksti-tumma);
-            line-height: 1.6;
-        }
+    /* Brändivärit (pysyvät samana molemmissa tiloissa) */
+    --tumma-viininpunainen: #58181F;
+    --lammin-valkoinen: #FAFAF5;
+    --vadelmanpunainen: #D1345B;
 
-        header {
-            background-color: var(--tumma-viininpunainen);
-            color: var(--lammin-valkoinen);
-            padding: 2rem 1rem;
-            text-align: center;
-        }
+    /* Vaalean tilan pinta- ja tekstivärit */
+    --tausta: #FAFAF5;
+    --teksti: #2B2626;
+    --harmaa-tausta: #F0EFEA;
+    --kentta-tausta: #FFFFFF;
+    --kentta-reunus: #888888;
+    --virhe-tausta: #FFF5F7;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            letter-spacing: 1px;
-        }
+/* Tumman tilan asetukset käyttäjän järjestelmäasetusten mukaan */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --tausta: #1A1617;
+        --teksti: #F4F1EE;
+        --harmaa-tausta: #262022;
+        --kentta-tausta: #2B2426;
+        --kentta-reunus: #7A6E71;
+        --virhe-tausta: #3A1D24;
+        --vadelmanpunainen: #F25C7E;
+    }
+}
 
-        header p {
-            margin: 0.5rem 0 0 0;
-            font-style: italic;
-            opacity: 0.9;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--tausta);
+    color: var(--teksti);
+    line-height: 1.6;
+}
 
+header {
+    background-color: var(--tumma-viininpunainen);
+    color: var(--lammin-valkoinen);
+    padding: 2rem 1rem;
+    text-align: center;
+}
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            background-color: var(--tumma-viininpunainen);
-            color: var(--lammin-valkoinen);
-            font-size: 0.9rem;
+header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+}
 
-        }
-        header a {
-            color: var(--lammin-valkoinen);
-            text-decoration: none;
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-decoration-color: var(--lammin-valkoinen);
-        }
-        /* Varmistaa, että hidden-attribuutti piilottaa kortin aina */
+header p {
+    margin: 0.5rem 0 0 0;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+header a {
+    color: var(--lammin-valkoinen);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--lammin-valkoinen);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    background-color: var(--tumma-viininpunainen);
+    color: var(--lammin-valkoinen);
+    font-size: 0.9rem;
+}
+
+/* Varmistaa, että hidden-attribuutti piilottaa kortin aina */
+[hidden] {
+    display: none !important;
+}
+
 /* Korostaa valitun suodatinpainikkeen sivuston teemavärillä */
 button[aria-pressed="true"] {
     background-color: var(--tumma-viininpunainen);
     color: var(--lammin-valkoinen);
+}
+
+/* Popover-ankkurointi ja tyylit */
+#info-btn {
+anchor-name: --info-anchor;
+background-color: var(--lammin-valkoinen);
+color: var(--tumma-viininpunainen);
+border: none;
+padding: 0.5rem 1rem;
+margin-top: 0.75rem;
+border-radius: 4px;
+font-weight: bold;
+cursor: pointer;
+}
+
+#aukiolo-popover {
+position-anchor: --info-anchor;
+position-area: bottom span-all;
+margin-top: 0.5rem;
+padding: 1.25rem;
+border: 2px solid var(--vadelmanpunainen);
+border-radius: 8px;
+background-color: var(--tausta);
+color: var(--teksti);
+max-width: 300px;
+}
+
+/* Lomakkeen tyylit */
+form {
+    max-width: 500px;
+    display: grid;
+    gap: 1rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+input, select, textarea {
+    padding: 0.6rem;
+    border: 1px solid var(--kentta-reunus);
+    border-radius: 4px;
+    background-color: var(--kentta-tausta);
+    color: var(--teksti);
+    font: inherit;
+}
+
+/* Virheiden korostus: paksu reunus + väri */
+[aria-invalid="true"] {
+    border-color: var(--vadelmanpunainen);
+    border-left-width: 0.5rem;
+    background-color: var(--virhe-tausta);
+}
+
+.error {
+    color: var(--vadelmanpunainen);
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.error:empty {
+    display: none;
+}
+
+/* Vahvistusviestin tyyli */
+#form-status:not(:empty) {
+margin-top: 1.5rem;
+padding: 1rem;
+background-color: var(--harmaa-tausta);
+border-left: 0.5rem solid var(--vadelmanpunainen);
 }
