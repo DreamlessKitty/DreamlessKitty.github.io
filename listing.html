@@ -1,54 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Varaukset - Kuivasjärven Rantasaunat</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Kuivasjärven Rantasaunat</h1>
-         <button type="button" id="info-btn" popovertarget="aukiolo-popover">Aukioloajat ja sijainti</button>
+<html lang="fi">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Varaukset - Kuivasjärven Rantasaunat</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Kuivasjärven Rantasaunat</h1>
+            <button type="button" id="info-btn" popovertarget="aukiolo-popover">Aukioloajat ja sijainti</button>
             <div id="aukiolo-popover" popover>
                 <h3>Aukioloajat ja sijainti</h3>
-                <p>Ma–Su klo 10:00–22:00</p>
-                <p>Kuivasjärventie 123, 60100 Seinäjoki</p>
+                <p>Iltavuorot klo 16:00–22:00</p>
+                <p>Kuivasjärventie 77, 60200 Seinäjoki</p>
                 <button type="button" popovertarget="aukiolo-popover" popovertargetaction="hide">Sulje</button>
             </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Etusivu</a></li>
-                <li><a href="about.html">Saunat</a></li>
-                <li><a href="listing.html">Varaukset</a></li>
-                <li><a href="contact.html">Yhteystiedot</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Varauslomake</h2>
-            <form action="varaukset.html" method="post">
-                <label for="sauna">Valitse sauna:</label>
-                <select name="sauna" id="sauna">
-                    <option value="sauna1">Savusauna</option>
-                    <option value="sauna2">Puulämmitteinen rantasauna</option>
-                    <option value="sauna3">Pieni mökkisauna</option>
-                </select>
-                <br><br>
-                <label for="paiva">Valitse päivä:</label>
-                <input type="date" name="paiva" id="paiva">
-                <br><br>
-                <label for="aika">Valitse aika:</label>
-                <input type="time" name="aika" id="aika">
-                <br><br>
-                <p>Varauksen hinta on 160€ arkisin ja 220€ viikonloppuisin ja pyhisin.</p>
-                <input type="submit" value="Varaa">
-            </form>
-        </section>
-    </main>
-    <footer>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Etusivu</a></li>
+                    <li><a href="about.html">Saunat</a></li>
+                    <li><a href="listing.html">Varaukset</a></li>
+                    <li><a href="contact.html">Yhteystiedot</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h2>Varauslomake</h2>
+                <p id="booking-status" role="status"></p>
+                <form id="booking-form">
+                    <div class="field">
+                        <label for="sauna">Valitse sauna:</label>
+                        <select name="sauna" id="sauna" required>
+                            <option value="">Ladataan saunoja…</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="paiva">Valitse vapaa ilta:</label>
+                        <select name="paiva" id="paiva" required>
+                            <option value="">Valitse ensin sauna</option>
+                        </select>
+                    </div>
+                    <p id="booking-price">Valitse sauna ja ilta nähdäksesi hinnan.</p>
+                    <button type="submit">Varaa</button>
+                </form>
+            </section>
+        </main>
+        <footer>
             <p>&copy; 2026 Kuivasjärven Rantasaunat</p>
         </footer>
-</body>
+    </body>
 </html>
