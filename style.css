@@ -155,3 +155,7 @@ padding: 1rem;
 background-color: var(--harmaa-tausta);
 border-left: 0.5rem solid var(--vadelmanpunainen);
 }
+#load-more-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
