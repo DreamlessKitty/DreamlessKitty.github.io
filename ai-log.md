@@ -4,3 +4,5 @@ Ai was used to ask if certain layouting was good and if there was a better way t
 I used AI to check if all of my styling and functionality worked. If it said it wouldn't pass the checks it would give me feedback on what to improve.
 
 Because of this course being shit and the teacher being shit at their job, I have asked AI How to do stuff. You know Gemini Hydrogen is really good at checking and telling you what to do unlike somebody whose fucking job it is to teach people and not just expect them to know everything. Again fuck this school i hope it goes bankrupt.
+
+E5 asked AI how to use lighthouse and its scores. It told me what everything meant.
