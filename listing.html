@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="fi" class="no-js">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Varaukset - Kuivasjärven Rantasaunat</title>
+        <script>
+            document.documentElement.classList.replace('no-js', 'js');
+        </script>
         <link rel="stylesheet" href="style.css">
         <script src="script.js" defer></script>
     </head>
@@ -13,8 +16,8 @@
             <button type="button" id="info-btn" popovertarget="aukiolo-popover">Aukioloajat ja sijainti</button>
             <div id="aukiolo-popover" popover>
                 <h3>Aukioloajat ja sijainti</h3>
-                <p>Iltavuorot klo 16:00–22:00</p>
-                <p>Kuivasjärventie 77, 60200 Seinäjoki</p>
+                <p>Ma–Su klo 10:00–22:00</p>
+                <p>Kuivasjärventie 123, 60100 Seinäjoki</p>
                 <button type="button" popovertarget="aukiolo-popover" popovertargetaction="hide">Sulje</button>
             </div>
             <nav>
