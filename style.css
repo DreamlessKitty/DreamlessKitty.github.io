@@ -148,20 +148,38 @@ input, select, textarea {
     display: none;
 }
 
-/* Vahvistusviestin tyyli */
-#form-status:not(:empty) {
-margin-top: 1.5rem;
-padding: 1rem;
-background-color: var(--harmaa-tausta);
-border-left: 0.5rem solid var(--vadelmanpunainen);
-}
 #load-more-btn:disabled {
     opacity: 0.6;
     cursor: wait;
 }
-.no-js .filters {
+#sauna-status:not(:empty),
+#booking-status:not(:empty),
+#form-status:not(:empty) {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--harmaa-tausta);
+    border-left: 0.5rem solid var(--vadelmanpunainen);
+}
+
+#load-more-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.no-js .filters,
+.no-js #booking-form {
     display: none;
 }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--vadelmanpunainen);
+    outline-offset: 2px;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -169,4 +187,5 @@ border-left: 0.5rem solid var(--vadelmanpunainen);
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+
 }
