@@ -18,14 +18,14 @@ function wait(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function getWithRetry(url, tries = 3) {
+async function getWithRetry(url, statusEl = null, tries = 3) {
     for (let attempt = 1; ; attempt++) {
         const res = await fetch(url);
 
         if (res.status === 429 && attempt < tries) {
             const seconds = Number(res.headers.get('Retry-After')) || 3;
-            if (saunaStatus) {
-                saunaStatus.textContent = `Palvelin on kiireinen. Yritetään uudelleen…`;
+            if (statusEl) {
+                statusEl.textContent = `Palvelin on kiireinen. Yritetään uudelleen ${seconds} s kuluttua…`;
             }
             await wait(seconds * 1000);
             continue;
@@ -87,10 +87,10 @@ async function initBookingForm() {
     const url = new URL(`${API_BASE}/items`);
     url.searchParams.set('customer', CUSTOMER_ID);
     url.searchParams.set('lang', 'fi');
-    //url.searchParams.set('simulate', '429'); // <-- TEMPORARY TEST LINE
+    // url.searchParams.set('simulate', '429'); // <-- TEMPORARY TEST LINE
 
     try {
-        const page = await getWithRetry(url);
+        const page = await getWithRetry(url, bookingStatus);
         const items = page.items ?? [];
 
         saunaSelect.replaceChildren(new Option('Valitse sauna…', ''));
@@ -240,7 +240,7 @@ async function loadSaunas(cursor = null) {
     }
 
     try {
-        const page = await getWithRetry(url);
+        const page = await getWithRetry(url, saunaStatus);
         const items = page.items ?? [];
 
         if (!cursor) {
